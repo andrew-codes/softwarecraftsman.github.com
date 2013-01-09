@@ -1,0 +1,13 @@
+body {
+	background: url("/images/noise.png?1357746495") repeat scroll left top #F8F8F8;	
+}
+.vcard h3 {
+	display: inline;
+}
+.vcard .org{
+	font-weight: 600;
+}
+.vcard .org .title {
+	font-weight: normal;
+	font-style: underline;
+}
