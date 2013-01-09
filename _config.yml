@@ -97,3 +97,6 @@ google_analytics_tracking_id: UA-37138786-1
 
 # Facebook Like
 facebook_like: true
+
+bitbucket_user: softwarecraftsmen
+bitbucket_repo_count: 5
