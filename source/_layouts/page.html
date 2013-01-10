@@ -1,8 +1,6 @@
 ---
 layout: default
 ---
-
-<div>
 <article role="article">
   {% if page.title %}
   <header>
@@ -30,7 +28,6 @@ layout: default
     <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
   </section>
 {% endif %}
-</div>
 {% unless page.sidebar == false %}
 <aside class="sidebar">
   {% if site.page_asides.size %}

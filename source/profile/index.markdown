@@ -7,8 +7,8 @@ sharing: true
 footer: true
 ---
 <div class="vcard bio">
-	<h3 class="fn">Andrew Smith</h3>
-	{% img photo right /images/profile_headshot_medium.png Profile headshot %}
+	<h2 class="fn">Andrew Smith</h2>
+	{% img photo /images/profile_headshot_medium.png Profile headshot %}
 	<div class="org">
 		<span class="value">MModal</span>,
 		<span class="title">Software Engineer</span>
