@@ -15,7 +15,7 @@ footer: true
 		<span class="title">Software Engineer</span>
 	</div>
 	<div class="tel">
-		<span class="type"><span class="value">Mobile</span>: <span class="value">+1</span>.<span class="value">404</span>.<span class="value">6064</span>
+		<span class="type"><span class="value">Mobile</span>: <span class="value">+1</span>.<span class="value">404</span>.<span class="value">822</span>.<span class="value">6064</span>
 	</div>
 	<div class="profiles">
 		<ul class="unstyled">
