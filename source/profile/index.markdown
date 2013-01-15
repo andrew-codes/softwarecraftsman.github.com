@@ -1,14 +1,15 @@
 ---
 layout: page
-title: "Profile"
+title: "Andrew Smith"
+subtitle: "Profile"
 date: 2013-01-09 11:29
 comments: false
 sharing: true
 footer: true
 ---
 <div class="vcard bio">
-	<h2 class="fn">Andrew Smith</h2>
-	{% img photo /images/profile_headshot_medium.png Profile headshot %}
+	<h2 class="fn hide">Andrew Smith</h2>
+	{% img img-polaroid pull-right /images/profile_headshot_medium.png Profile headshot %}
 	<div class="org">
 		<span class="value">MModal</span>,
 		<span class="title">Software Engineer</span>
@@ -18,10 +19,11 @@ footer: true
 	</div>
 	<div class="profiles">
 		<ul class="unstyled">
-			<li><a rel="me" class="url twitter" href="http://twitter.com/software_craft">@software_craft</a></li>
-			<li><a rel="me" class="url google-plus" href="http://plus.google.com/u/0/101345975897161918424;">andrew.softwarecraftsmen</a></li>
-			<li><a rel="me" class="url github" href="http://github.com/softwarecraftsmen">softwarecraftsmen</a></li>
-			<li><a rel="me" class="url bitbucket" href="http://scm.wearesoftwarecraftsmen.com">wearesoftwarecraftsmen</a></li>
+		    <li><a rel="me" class="url linked-in" href="http://twitter.com/software_craft"><i class="icon-linked-in"></i> profile</a></li>
+			<li><a rel="me" class="url twitter" href="http://twitter.com/software_craft"><i class="icon-twitter"></i> @software_craft</a></li>
+			<li><a rel="me" class="url google-plus" href="http://plus.google.com/u/0/101345975897161918424;"><i class="icon-google-plus"></i> andrew.softwarecraftsmen</a></li>
+			<li><a rel="me" class="url github" href="http://github.com/softwarecraftsmen"><i class="icon-github"></i> softwarecraftsmen</a></li>
+			<li><a rel="me" class="url bitbucket" href="http://scm.wearesoftwarecraftsmen.com"><i class="icon-bitbucket"></i> wearesoftwarecraftsmen</a></li>
 		</ul>
 	</div>
 	<div class="notes">

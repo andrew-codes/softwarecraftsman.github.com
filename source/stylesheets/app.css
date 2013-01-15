@@ -1,26 +1,114 @@
-/* Artfully masterminded by ZURB  */
-
-/* -------------------------------------------------- 
+/* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
-:: Page Name 1
+:: Profile
 :: Page Name 2
 */
-
 
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
+body>header {
+    background: #111;
+    padding: 26px;
+}
+@media (max-width:768px){
+    body>header{
+        margin-left:-20px;
+        margin-right: -20px;
+    }
+}
+body>header h1 a, body>header h1 a:visited, body>header h1 a:active, body>header h1 a:link {
+    color: #fff;
+}
 
+.navbar .brand {
+    margin-left: 0;
+}
 
-
+.navbar .pull-right .brand {
+    margin-left: -20px;
+}
+@media (max-width:979px) {
+    .navbar-search {
+        margin: 10px;
+        width: 100%;
+    }
+    .navbar-search .search-query{
+        width: 97%;
+        padding: 1%;
+    }
+}
+#main aside {
+    background: #ccc url("../images/noise.png")
+}
+#main aside >* {
+    padding-left: 5px;
+}
+#main aside h1{
+    font-size: 24.5px;
+}
+article>footer{
+    clear: both;
+}
+.fb_iframe_widget{
+    width: 275px;
+}
+body>footer{
+    margin-top: 13px;
+    background: #111;
+    padding: 26px;
+    color: #7ab5d3;
+}
+/*
+#main article{
+    padding: 18px;
+}
+#main article, #main aside {
+    margin: 0;
+}
+#main article > * {
+    padding: 18px;
+}
+*/
 /* -----------------------------------------
-   Page Name 1
+   Profile
 ----------------------------------------- */
+.vcard .org {
+    font-weight: 600;
+}
 
+.vcard .org .title {
+    font-style: italic;
+    font-weight: normal;
+}
 
+.vcard [class^="icon-"], .vard [class*=" icon-"] {
+    background-image: url("../images/profile_icons.png");
+    background-position: 24px 24px;
+    background-repeat: no-repeat;
+}
 
+.vcard .icon-google-plus {
+    background-position: 0 0;
+}
+
+.vcard .icon-linked-in {
+    background-position: -15px 0;
+}
+
+.vcard .icon-github {
+    background-position: -30px 0;
+}
+
+.vcard .icon-twitter {
+    background-position: -45px 0;
+}
+
+.vcard .icon-email {
+    background-position: -60px 0;
+}
 
 /* -----------------------------------------
    Page Name 2
