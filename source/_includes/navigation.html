@@ -1,7 +1,6 @@
 <div class="navbar navbar-static-top">
     <div class="navbar-inner">
         <div class=container>
-            <a class="brand" title="James Andrew Smith">JAS</a>
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".search-collapse">
                 <span class="icon-search"></span>
             </a>
@@ -11,6 +10,9 @@
 
             <nav role="navigation" class="nav-collapse collapse navigation-collapse">
                 <ul class="nav">
+                    <li>
+                        <a title="James Andrew Smith"><i class="icon-home"></i></a></li>
+                    <li class="divider-vertical"></li>
                     {% include custom/navigation_items.html %}
                 </ul>
                 <ul class="nav subscription" data-subscription="rss{% if site.subscribe_email %} email{% endif %}">
