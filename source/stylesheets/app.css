@@ -9,17 +9,25 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-body>header {
-    background: #111;
-    padding: 26px;
+body{
+    background: #242424;
 }
-@media (max-width:768px){
-    body>header{
-        margin-left:-20px;
+.body{
+    background: #fff url("../images/noise.png");
+}
+.body>header {
+    padding: 26px;
+    background: #242424;
+}
+
+@media (max-width:768px) {
+    .body>header {
+        margin-left: -20px;
         margin-right: -20px;
     }
 }
-body>header h1 a, body>header h1 a:visited, body>header h1 a:active, body>header h1 a:link {
+
+.body>header h1 a, .body>header h1 a:visited, .body>header h1 a:active, .body>header h1 a:link {
     color: #fff;
 }
 
@@ -30,48 +38,68 @@ body>header h1 a, body>header h1 a:visited, body>header h1 a:active, body>header
 .navbar .pull-right .brand {
     margin-left: -20px;
 }
+
 @media (max-width:979px) {
     .navbar-search {
         margin: 10px;
         width: 100%;
     }
-    .navbar-search .search-query{
+
+    .navbar-search .search-query {
         width: 97%;
         padding: 1%;
     }
 }
+
+#main .row {
+    background: url("../images/noise.png");
+    min-height: 600px;
+}
+
 #main aside {
-    background: #ccc url("../images/noise.png")
+    padding: 20px 0 40px 20px;
+    margin: 15px 0;
+    background-image: -webkit-gradient(linear, 0 0, 0 1px, from(#ccc), to(transparent));
+    background-image: -webkit-linear-gradient(#fff, transparent);
+    background-image: -moz-linear-gradient(#fff, transparent);
+    background-image: -o-linear-gradient(#fff, transparent);
+    background-image: linear-gradient(#fff, transparent);
+    -moz-background-size: 0;
+    background-size: 1px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
 }
+
 #main aside >* {
-    padding-left: 5px;
 }
-#main aside h1{
+
+#main aside h1 {
     font-size: 24.5px;
 }
-article>footer{
+
+article>footer {
     clear: both;
 }
-.fb_iframe_widget{
+
+.fb_iframe_widget {
     width: 275px;
 }
-body>footer{
-    margin-top: 13px;
-    background: #111;
-    padding: 26px;
+
+.body>footer {
     color: #7ab5d3;
+    background: #242424;
 }
-/*
-#main article{
-    padding: 18px;
+
+.body>footer>* {
+    padding: 26px;
+    /*-webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -o-border-radius: 0 0 10px 10px;
+    -ms-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #ddd;*/
 }
-#main article, #main aside {
-    margin: 0;
-}
-#main article > * {
-    padding: 18px;
-}
-*/
+
 /* -----------------------------------------
    Profile
 ----------------------------------------- */
@@ -85,9 +113,7 @@ body>footer{
 }
 
 .vcard [class^="icon-"], .vard [class*=" icon-"] {
-    background-image: url("../images/profile_icons.png");
-    background-position: 24px 24px;
-    background-repeat: no-repeat;
+    background: url("../images/profile_icons.png") no-repeat 24px 24px;
 }
 
 .vcard .icon-google-plus {
@@ -109,9 +135,5 @@ body>footer{
 .vcard .icon-email {
     background-position: -60px 0;
 }
-
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
 
 
