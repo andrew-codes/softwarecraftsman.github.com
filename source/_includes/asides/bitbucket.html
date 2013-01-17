@@ -1,7 +1,7 @@
 {% if site.bitbucket_user %}
 <section id="bitbucket">
   <h1>Bitbucket Repos</h1>
-  <ul id="repos" class="unstyled">
+  <ul id="bitbucket_repos" class="unstyled">
     <li class="loading">Status updating...</li>
   </ul>
   {% if site.bitbucket_show_profile_link %}
@@ -20,7 +20,7 @@
         bitbucket.showRepos({
             user: '{{site.bitbucket_user}}',
             count: {{site.bitbucket_repo_count}},
-            target: '#bb_repos'
+            target: '#bitbucket_repos'
         });
     });
   </script>
