@@ -3,6 +3,7 @@ layout: post
 title: "Mastering the Tools of your Craft"
 date: 2013-01-14 11:01
 comments: true
+published: false
 categories: automation
 ---
 With a site and blog titled "We are Software Craftsmen," I feel it is fitting for the first article I write to be about mastering the tools of the craft. What I mean, specifically, is not simply masteringing the tools you work with on a daily basis, rather leveraging those tools to automate as much as your workflow as possible. This ultimately leads to a potentially significant boost in your producitivy and ability to produce high quality software. <!--more-->
