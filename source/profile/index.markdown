@@ -19,7 +19,7 @@ footer: true
 	</div>
 	<div class="profiles">
 		<ul class="unstyled">
-		    <li><a rel="me" class="url linked-in" href="http://twitter.com/software_craft"><i class="icon-linked-in"></i> profile</a></li>
+		    <li><a rel="me" class="url linked-in" href="http://www.linkedin.com/in/jamesandrewsmith/"><i class="icon-linked-in"></i> profile</a></li>
 			<li><a rel="me" class="url twitter" href="http://twitter.com/software_craft"><i class="icon-twitter"></i> @software_craft</a></li>
 			<li><a rel="me" class="url google-plus" href="http://plus.google.com/u/0/101345975897161918424;"><i class="icon-google-plus"></i> andrew.softwarecraftsmen</a></li>
 			<li><a rel="me" class="url github" href="http://github.com/softwarecraftsmen"><i class="icon-github"></i> softwarecraftsmen</a></li>
