@@ -10,8 +10,9 @@ var bitbucket = (function(){
   return {
     showRepos: function(options){
       $.ajax({
-          url: "https://api.bitbucket.org/1.0/users/"+options.user+"?callback=?"
-        , type: 'jsonp'
+        url: "https://api.bitbucket.org/1.0/users/"+options.user+"?callback=?"
+        , type: 'GET'
+        , dataType: "jsonp"
         , error: function (err) { $(options.target + ' li.loading').addClass('error').text("Error loading feed"); }
         , success: function(data) {
           var repos = [];
