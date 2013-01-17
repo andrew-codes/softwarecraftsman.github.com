@@ -62,6 +62,7 @@ body{
     background-image: -webkit-linear-gradient(#fff, transparent);
     background-image: -moz-linear-gradient(#fff, transparent);
     background-image: -o-linear-gradient(#fff, transparent);
+    background-image: -ms-linear-gradient(#fff, transparent);
     background-image: linear-gradient(#fff, transparent);
     -moz-background-size: 0;
     background-size: 1px;
