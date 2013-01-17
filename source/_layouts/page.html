@@ -8,10 +8,9 @@ layout: default
         {% endif %}
         <article role="article">
             {% if page.title %}
-            <header class="page-header">
-                <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %} {% if page.subtitle %}
-                    <small>{{ page.subtitle }}</small>
-                                        {% endif %}
+            <header>
+                <h1 class="page-header">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+                    {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
                 </h1>
             </header>
             {% endif %}
