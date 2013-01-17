@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
-<div class="span8">
+{% if page.sidebar %}
+<div class="span12">
+    {% else %}
+    <div class="span8">
+        {% endif %}
     <div class="blog-index">
       {% assign index = true %}
       {% for post in paginator.posts %}

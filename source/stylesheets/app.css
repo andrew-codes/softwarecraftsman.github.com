@@ -96,9 +96,9 @@ article>footer {
         margin: 0 -20px;
     }
     .body>header {
-    margin-left: -20px;
-    margin-right: -20px;
-}
+        margin-left: -20px;
+        margin-right: -20px;
+    }
     .navbar-search .search-query{
         width: 80%;
         padding: 4px 6px;
@@ -145,6 +145,11 @@ a {
     text-align: center;
 }
 
+article h2{
+    border-top: 1px solid #eee;
+    margin-top: 26px;
+}
+
 /* -----------------------------------------
   :: Profile
 ----------------------------------------- */
@@ -180,7 +185,25 @@ a {
 .vcard .icon-email {
     background-position: -60px 0;
 }
-
+.skills {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
+}
+.skills li{
+    font-size:18px;
+    font-weight: 400;
+}
+.lt-ie10 .skills {
+}
+.lt-ie10 .skills li
+{
+    float: left;
+    width: 50%;
+}
 /* -----------------------------------------
   :: Blog Archives & Blog Index
 ----------------------------------------- */
