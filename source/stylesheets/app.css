@@ -76,6 +76,7 @@ body{
 
 article>footer {
     clear: both;
+    padding-bottom: 26px;
 }
 
 .fb_iframe_widget {
@@ -192,10 +193,6 @@ article h2{
     -webkit-column-gap: 20px;
     column-count: 2;
     column-gap: 20px;
-}
-.skills li{
-    font-size:18px;
-    font-weight: 400;
 }
 .lt-ie10 .skills {
 }
