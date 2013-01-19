@@ -5,7 +5,6 @@ subtitle: "(Machine.Specifications)"
 date: 2013-01-19 08:32
 comments: true
 categories: BDD C# MSpec
-published: false
 ---
 This tutorial will help you get started using Machine.Specifications, otherwise known as MSpec,
 for writing your <abbr title="Behavioral driven development">BDD</abbr> style unit tests, called specifications. In this tutorial we will go over the basic syntax of using MSpec, author some simple specifications, as well as setup ReSharper to run and output the results. <!--More-->
@@ -14,7 +13,8 @@ Get the Source
 ---------------------------
 To faciliate setting up ReSharper to run MSpec specifications, we need to grab the latest source from github.
 
-``` bash
+```
+bash
 git clone git://github.com/machine/machine.specifications.git mspec
 ```
 
@@ -22,20 +22,21 @@ Setting up ReSharper
 ----------------------------
 Next, we need to build the source code. This can easily be done with the following command:
 
-``` bash
+```
+bash
 cd mspec
 build-release.cmd
 ```
 
-This changes your current directory and then runs the file build-release.cmd. This run MSpec's own specifications and
-then build the solution under release mode. The build's output files can be found in `mspec/Build/Release`. In this
-directory, you will find files for ReShaper in the format of `InstallReSharperRunner.*.*.bat` where `*.*` is the
+This changes your current directory and then runs the file build-release.cmd; including running MSpec's own specifications and
+then building the solution under release mode. The build's output files can be found in `mspec/Build/Release`. In this
+directory, you will find files for ReSharper in the format of `InstallReSharperRunner.*.*.bat` where `*.*` is the
 version of your ReSharper. Simply run the `.bat` file that corresponds to your ReSharper version. You ReSharper can
-now run MSpec specifications! Now let's create some to see it in action.
+now run MSpec specifications! Now let's create a specification to see it in action.
 
 Before we get Started
 ---------------------------
-It is probably important to note where these specifications we are about to write are going to live. Do they go in a
+It is important to note where these specifications we are about to write are going to live. Do they go in a
 class library project? Or is there a special project type; Test Project anyone? Well, when using MSpec,
 your specifications are just special classes in a normal class library project. Typically,
 I have a class library dedicated to specifications only. It is typically a **bad practice** to place the
@@ -91,8 +92,7 @@ public class StringUtilities
 Running Your Specifications
 ---------------------------
 <p class="clearfix">
-<img class="img-polaroid pull-right" src="/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/run-unit-tests-resharper-right-click-menu_resized.png" /> Having setup ReSharper with MSpec, makes this easy! The easiest way is to right-click on the specifications project
-and click "Run Unit Tests" as seen in the screenshot here:
+<img class="img-polaroid pull-right" src="/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/run-unit-tests-resharper-right-click-menu_resized.png" /> Having setup ReSharper with MSpec, the easiest way is to right-click on the specifications project and click "Run Unit Tests" as seen in the screenshot here:
 </p>
 
 <p class="clearfix">
