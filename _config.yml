@@ -100,3 +100,5 @@ facebook_like: true
 
 bitbucket_user: wearesoftwarecraftsmen
 bitbucket_repo_count: 5
+
+is_linkedin_enabled: true
