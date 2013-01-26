@@ -4,14 +4,14 @@ title: "Get Started with MSpec"
 subtitle: "(Machine.Specifications)"
 date: 2013-01-19 08:32
 comments: true
-categories: BDD C# MSpec
+categories: [TDD, BDD, mspec, unit testing]
 ---
 This tutorial will help you get started using Machine.Specifications, otherwise known as MSpec,
 for writing your <abbr title="Behavioral driven development">BDD</abbr> style unit tests, called specifications. In this tutorial we will go over the basic syntax of using MSpec, author some simple specifications, as well as setup ReSharper to run and output the results. <!--More-->
 
 Get the Source
 ---------------------------
-To faciliate setting up ReSharper to run MSpec specifications, we need to grab the latest source from github.
+To facilitate setting up ReSharper to run MSpec specifications, we need to grab the latest source from github.
 
 ```
 bash
