@@ -5,7 +5,7 @@
 :: Profile
 :: Blog Archives & Blog Index
 :: Blog Posts
-:: Widgets
+:: Asides
 */
 
 /* -----------------------------------------
@@ -768,8 +768,20 @@ figure.code .highlight {
 }
 
 /* -----------------------------------------
-  :: Widgets
+  :: Asides
 ----------------------------------------- */
+.tag-cloud nav{
+    font-size: 11px;
+}
+.tag-cloud a:after{
+    content: ",";
+    display: inline;
+}
+
+.tag-cloud a:last-child:after{
+    content: none;
+}
+
 .googleplus h1 {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
