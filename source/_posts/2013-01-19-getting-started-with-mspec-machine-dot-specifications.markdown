@@ -13,8 +13,7 @@ Get the Source
 ---------------------------
 To facilitate setting up ReSharper to run MSpec specifications, we need to grab the latest source from github.
 
-```
-bash
+``` bash
 git clone git://github.com/machine/machine.specifications.git mspec
 ```
 
@@ -22,8 +21,7 @@ Setting up ReSharper
 ----------------------------
 Next, we need to build the source code. This can easily be done with the following command:
 
-```
-bash
+``` bash
 cd mspec
 build-release.cmd
 ```
