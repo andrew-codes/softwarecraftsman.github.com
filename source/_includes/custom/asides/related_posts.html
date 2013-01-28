@@ -1,8 +1,8 @@
 <section>
     <h1>Related Posts</h1>
-    <ul class="posts">
+    <ul class="related_posts unstyled">
         {% for post in site.related_posts limit:5 %}
-        <li class="related">
+        <li class="post">
             <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
         </li>
         {% endfor %}
