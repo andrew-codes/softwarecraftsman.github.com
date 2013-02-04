@@ -5,11 +5,11 @@ date: 2013-02-03 16:36
 comments: true
 categories: ["rake", "ruby", "automation"]
 ---
-This article will demonstrate how I have utilized Ruby [Rake](http://rake.rubyforge.org/), the [Albacore](https://github.com/derickbailey/Albacore) task library, and a few other Ruby gems for build automation in my .NET projects. Hopefully this will be a good source to help those wishing to do the same. Keep in mind that this is not a beginner's guide and assumes you are already somewhat familiar with Rake. For those that prefer a more "hands-on" approach, the **[source code](https://gitlab.wearesoftwarecraftsmen.com/public)** for this article can be found with my other [public projects](https://gitlab.wearesoftwarecraftsmen.com/public). <!--More-->
+This article will demonstrate how I have utilized Ruby [Rake](http://rake.rubyforge.org/), the [Albacore](https://github.com/derickbailey/Albacore) task library, and a few other Ruby gems for build automation in my .NET projects. Hopefully this will be a good source to help those wishing to do the same. Keep in mind that this is not a beginner&#8217;s guide and assumes you are already somewhat familiar with Rake. For those that prefer a more "hands-on" approach, the **[source code](https://gitlab.wearesoftwarecraftsmen.com/public)** for this article can be found with my other [public projects](https://gitlab.wearesoftwarecraftsmen.com/public). <!--More--> 
 
 The Goals
 ----------------------------
-Before writing any Ruby, it's important to determine exactly what it is you are trying to automate with Rake. This will serve as a guide in what and how you write your Rake tasks. I set out with the following goals in mind:
+Before writing any Ruby, it&#8217;s important to determine exactly what it is you are trying to automate with Rake. This will serve as a guide in what and how you write your Rake tasks. I set out with the following goals in mind:
 
 * Compile the .NET project
 * Run all [Mspec test specifications]({% post_url 2013-01-19-getting-started-with-mspec-machine-dot-specifications %}) for  project
@@ -65,7 +65,7 @@ end
 
 Compiling the Project
 ---------------------------
-For the compilation task, I used [Albacore](https://github.com/derickbailey/Albacore)'s `msbuild` task.
+For the compilation task, I used [Albacore](https://github.com/derickbailey/Albacore)&#8217;s `msbuild` task.
 
 ``` ruby
 desc "Compiles the project."
@@ -97,7 +97,7 @@ Notice that this is simply a Ruby file with a different file extension. I then l
 load "#{base_dir}/build_configuration.settings"
 ```
 
-The `msbuild` task uses the default location of the MSBuild executable. However, there is a chance the build machine does not have MSBuild in the correct location or even installed. In order to make the build self-contained, I have explicitly configured the task's command location to use the MSBuild.exe located in my build_tools directory. The MSBuild executable can be copied from the following locations:
+The `msbuild` task uses the default location of the MSBuild executable. However, there is a chance the build machine does not have MSBuild in the correct location or even installed. In order to make the build self-contained, I have explicitly configured the task&#8217;s command location to use the MSBuild.exe located in my build_tools directory. The MSBuild executable can be copied from the following locations:
 
 64-bit `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe`
 
@@ -216,7 +216,7 @@ class ReleaseType
 end
 ```
 
-This class defines a string property for the type's name and then three class properties for each of the release types; major, minor, and ci. It also has a class method to return a release type based on a passed string. With this, we need to add a few more common properties to our rakefile as seen below:
+This class defines a string property for the type&#8217;s name and then three class properties for each of the release types; major, minor, and ci. It also has a class method to return a release type based on a passed string. With this, we need to add a few more common properties to our rakefile as seen below:
 
 ```ruby
 #...
@@ -287,7 +287,7 @@ task :build_output => "setup:init_directories" do
 end
 ```
 
-I also create a new namespace, `release`, and add tasks for preparing for the build's output.
+I also create a new namespace, `release`, and add tasks for preparing for the build&#8217;s output.
 
 ```ruby
 namespace :release do
@@ -305,7 +305,7 @@ end
 Finally, I add a task to the `release` namespace to copy all assemblies from the temporary build folder into a release folder. This will be used when no merging of assemblies is required:
 
 ```ruby
-desc "Output the build's release output."
+desc "Output the build&#8217;s release output."
 task :output => [:test, :build_output, :init] do
 	FileUtils.cp Dir.glob("#{build_dir}/*.dll"), release_dir
 end
