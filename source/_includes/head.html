@@ -6,7 +6,7 @@
 <!--[if lt IE 9]>
 <html class="no-js lt-ie10 lt-ie9" lang="en"> <![endif]-->
 <!--[if lt IE 10]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
@@ -40,5 +40,4 @@
     <!--<script src="{{ root_url }}/javascripts/app.js" type="text/javascript"></script>-->
     <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
     {% include custom/head.html %}
-    {% include google_analytics.html %}
 </head>

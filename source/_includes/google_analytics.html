@@ -9,5 +9,26 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
+
+    function extractParamFromUri(uri, paramName) {
+      if (!uri) {
+        return;
+      }
+      var regex = new RegExp('[\\?&#]' + paramName + '=([^&#]*)');
+      var params = regex.exec(uri);
+      if (params != null) {
+        return unescape(params[1]);
+      }
+      return;
+    }
+    function trackTwitter(intent_event) {
+      if (intent_event) {
+        var opt_pagePath;
+        if (intent_event.target && intent_event.target.nodeName == 'IFRAME') {
+              opt_target = extractParamFromUri(intent_event.target.src, 'url');
+        }
+        _gaq.push(['_trackSocial', 'twitter', 'tweet', opt_pagePath]);
+      }
+    }
   </script>
 {% endif %}
