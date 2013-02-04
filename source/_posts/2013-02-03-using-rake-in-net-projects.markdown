@@ -39,7 +39,7 @@ end
 
 Preparing the Build
 ---------------------------
-Next, the build script needs to do is define some common properties and clean up the solution from any previous build. To facilitate cleaning the build, I have created a Rake namespace called `:setup`. In this namespace I have three tasks for now; one to remove any build-created directories, one to re-create any directories needed by the build, and, finally, one to call that completes all setup tasks (there will be a few more shortly).
+Next, the build script needs to define some common properties and clean up the solution from any previous build. To facilitate cleaning the build, I have created a Rake namespace called `:setup`. In this namespace I have three tasks for now; one to remove any build-created directories, one to re-create any directories needed by the build, and, finally, one to call that completes all setup tasks (there will be a few more shortly).
 
 ``` ruby
 base_dir = File.dirname(__FILE__)
@@ -97,7 +97,7 @@ Notice that this is simply a Ruby file with a different file extension. I then l
 load "#{base_dir}/build_configuration.settings"
 ```
 
-The `msbuild` task uses the default location of the MSBuild executable. However, in the case the building machine does not have MSBuild and to make the build self-contained, I have explicity configured the task's MSBuild location to a folder in the root of my project; build_tools. The MSBuild executable can be copied from the following locations:
+The `msbuild` task uses the default location of the MSBuild executable. However, there is a chance the build machine does not have MSBuild in the correct location or even installed. In order to make the build self-contained, I have explicitly configured the task's command location to use the MSBuild.exe located in my build_tools directory. The MSBuild executable can be copied from the following locations:
 
 64-bit `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe`
 
@@ -265,7 +265,7 @@ Notice that an `AssemblyInfo.cs` file is created in every `Properties` folder tw
 
 Build Output
 ---------------------------
-Currently or `msbuild` task is building all our projects in place and not outputing the assemblies anywhere useful. We remedy this by creating another task responsible for moving all built, Release assemblies. These assemblies will be copied to a temporary folder to be processed further by the build script. We do not, however, want to copy any test releated assemblies or dependent assemblies. To faciliate this, I have added a `project_folders` property at the top of the rakefile that contains only project folders not affiliated with testing.
+Currently the `msbuild` task is building all our projects in place and not outputing the assemblies anywhere useful. We remedy this by creating another task responsible for moving all the built Release assemblies. These assemblies will be copied to a temporary folder to be processed further by the build script. We do not, however, want to copy any test releated assemblies or dependent assemblies. To faciliate this, I have added a `project_folders` property at the top of the rakefile that contains only project folders not affiliated with testing.
 
 ```ruby
 rejectFolders = ["build", "release", "build_tools", "packages"]
