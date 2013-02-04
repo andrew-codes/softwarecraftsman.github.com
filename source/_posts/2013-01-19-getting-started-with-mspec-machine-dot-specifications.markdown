@@ -51,6 +51,7 @@ Establish context-Because of-It should). You will be declaring the *Subject* of 
 *Establish* the context in which the specification applies, *Because* an action occurs, *It* should do something.
 
 With this said, you will want to pay particular attention to the **Subject**, **Establish**, **Because**, and **It** in the example below. The following code is a specification for concatentating two strings.
+
 ``` csharp
 [Subject(typeof(StringUtilties))]
 public class when_concatenating_two_strings
