@@ -1,3 +1,8 @@
 {% if site.is_linkedin_enabled %}
 <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function LinkedInShare() {
+	_gaq.push(['_trackSocial', 'LinkedIn', 'Share']);
+	}
+</script>
 {% endif %}
