@@ -77,7 +77,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: 101345975897161918424
+googleplus_user: 117652511575279353270
 googleplus_hidden: false
 
 # Pinboard
@@ -93,7 +93,7 @@ disqus_short_name: wearesoftwarecraftsmen
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id: UA-37138786-1
+google_analytics_tracking_id: UA-38417885-1
 
 # Facebook Like
 facebook_like: true
