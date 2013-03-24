@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress | We are Software Craftsmen]]></title>
+  <link href="http://softwarecraftsman.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://softwarecraftsman.github.com/"/>
+  <updated>2013-03-23T23:18:57-04:00</updated>
+  <id>http://softwarecraftsman.github.com/</id>
+  <author>
+    <name><![CDATA[Andrew Smith]]></name>
+    <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Adding Related Posts to Octopress on Windows]]></title>
+    <link href="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/"/>
+    <updated>2013-02-06T11:34:00-05:00</updated>
+    <id>http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows</id>
+    <content type="html"><![CDATA[<p>Although Jekyll already has the &#8220;related posts&#8221; feature baked in, utilizing rb-gsl can drastically speed up the site generation time by a magnitude of 10 times. However, installing the rb-gsl gem requires you to compile gsl from its source; which can be a little tricky on Windows. Throw in only a handful of helpful articles and you may find yourself frustrated trying to accomplish this. In this article, I detail the steps to get related posts up, running, and generating on your Windows machine via rb-gsl and gsl. <!-- More--></p>
+
+<h2 id="create-a-template">Create a Template</h2>
+<p>First, create a template for the related posts aside. I have created mine as follows <code>source/_includes/custom/asides/related_posts.html</code>. Below is my markup:
+
+```html</p>
+<section>
+    <h1>Related Posts</h1>
+    <ul class="related_posts unstyled">
+      {% for post in site.related_posts limit:5 %}
+        <li class="post">
+                    <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+      {% endfor" %}
+    </ul>
+</section>
+<p>```
+</p>
+
+<p>I am limiting a maximum of 5 related posts to be shown at once. I then included this aside in my post layout. Previewing the site populates this with the most recent posts. For a better list of related posts, we need to enable lsi in Jekyll.</p>
+
+<h2 id="jekyll-and-octopress-configuration">Jekyll and Octopress Configuration</h2>
+<p>Open the <code>_config_yml</code> file and add the following line anywhere in the file:</p>
+
+<p><code>ruby
+lsi: true
+</code></p>
+
+<p>This is all that is necessary. However, you may find that generating your blog now takes a very long time. This is because it is performing statistical analysis of your posts to determine which ones relate the best. To remedy this, we need to install gsl.</p>
+
+<h2 id="get-the-ruby-devkit">Get the Ruby DevKit</h2>
+<ol>
+  <li>Download and unzip the <a href="https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">Ruby DevKit</a> to <code>C:\Ruby193DevKit</code></li>
+  <li>Open the command and use the following commands:</li>
+</ol>
+
+<p><code>bash
+cd C:\Ruby193DevKit
+ruby dk.rb init
+</code></p>
+
+<ol>
+  <li>Open the newly created <code>config.yml</code> and ensure your Ruby is listed in the file.</li>
+  <li>Now issue the following commands:</li>
+</ol>
+
+<p><code>bash
+ruby dk.rb install
+</code></p>
+
+<h2 id="installing-gsl">Installing GSL</h2>
+<ol>
+  <li>Download <a href="http://ftpmirror.gnu.org/gsl/gsl-1.15.tar.gz">GSL 1.15</a></li>
+  <li>Using something like 7zip, unzip/untar the download to <code>C:\gsl-1.15</code></li>
+  <li>Open the following file: <code>C:\Ruby193DevKit\msys.bat</code>. This will open up a special command window.</li>
+  <li>Issue the following commands (may take several minutes to complete):</li>
+</ol>
+
+<p><code>bash
+cd /C/gsl-1.15
+./configure
+make
+make install
+</code></p>
+
+<h2 id="installing-rb-gsl">Installing rb-gsl</h2>
+<ol>
+  <li>Download the <a href="https://github.com/romanbsd/rb-gsl/archive/master.zip">rb-gsl source</a> and unzip it to <code>C:\rb-gsl</code></li>
+  <li>Next, using the same <code>msys.bat</code> command window, <code>cd</code> into the root of the rb-gsl directory and issue the following commands (as root):</li>
+</ol>
+
+<p><code>bash
+ruby setup.rb config
+ruby setup.rb setup
+ruby setup.rb install
+</code></p>
+
+<h2 id="conclusion-and-a-note-on-usage">Conclusion and a Note on Usage</h2>
+<p>You now have successfully installed the gsl library, rb-gsl gem and enabled the related posts functionality in Jekyll. It is worth noting that in order to generate your site with rb-gsl you need to use the <code>C:\Ruby193DevKit\msys.bat</code> command prompt. I have not had success doing so by simply using PowerShell.</p>
+]]></content>
+  </entry>
+  
+</feed>

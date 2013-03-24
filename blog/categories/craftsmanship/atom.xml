@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: craftsmanship | We are Software Craftsmen]]></title>
+  <link href="http://softwarecraftsman.github.com/blog/categories/craftsmanship/atom.xml" rel="self"/>
+  <link href="http://softwarecraftsman.github.com/"/>
+  <updated>2013-03-23T23:18:57-04:00</updated>
+  <id>http://softwarecraftsman.github.com/</id>
+  <author>
+    <name><![CDATA[Andrew Smith]]></name>
+    <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[On Software Craftsmanship]]></title>
+    <link href="http://softwarecraftsman.github.com/blog/2013/01/28/on-software-craftsmanship/"/>
+    <updated>2013-01-28T11:30:00-05:00</updated>
+    <id>http://softwarecraftsman.github.com/blog/2013/01/28/on-software-craftsmanship</id>
+    <content type="html"><![CDATA[<p>I consider myself a software craftsman. So in reading the article <a href="http://www.javaworld.com/community/?q=node/8649" title="On the Dark Side of Craftsmanship">On the Dark Side of &#8220;Craftsmanship&#8221;</a>, one may assume that I was upset at this article&#8217;s summary of what software craftsmanship truly entails. I was not. In fact, I not only agree with the tone and some of the points in the article, but have experienced some of these exact same things. I tend to feel that the meaning of software craftsmanship is not only misunderstood by &#8220;software laborers,&#8221; but by software craftsmen as well. This is my attempt to better define the driving motivation behind craftsmanship. <!--More--></p>
+
+<h2 id="we-are-all-software-craftsmen">We are All Software Craftsmen</h2>
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<p>Surround your pullquote like this {" text to be quoted "}</p>
+
+<p>No one lacks the need for improvement; learn from one another regardless of years of experience or rank.</p>
+
+<p><strong>We are not experts. We are software craftsmen and we are all in this
+together.</strong></p>
+]]></content>
+  </entry>
+  
+</feed>

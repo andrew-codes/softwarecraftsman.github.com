@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | We are Software Craftsmen]]></title>
+  <link href="http://softwarecraftsman.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://softwarecraftsman.github.com/"/>
+  <updated>2013-03-23T23:18:57-04:00</updated>
+  <id>http://softwarecraftsman.github.com/</id>
+  <author>
+    <name><![CDATA[Andrew Smith]]></name>
+    <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Adding Related Posts to Octopress on Windows]]></title>
+    <link href="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/"/>
+    <updated>2013-02-06T11:34:00-05:00</updated>
+    <id>http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows</id>
+    <content type="html"><![CDATA[<p>Although Jekyll already has the &#8220;related posts&#8221; feature baked in, utilizing rb-gsl can drastically speed up the site generation time by a magnitude of 10 times. However, installing the rb-gsl gem requires you to compile gsl from its source; which can be a little tricky on Windows. Throw in only a handful of helpful articles and you may find yourself frustrated trying to accomplish this. In this article, I detail the steps to get related posts up, running, and generating on your Windows machine via rb-gsl and gsl. <!-- More--></p>
+
+<h2 id="create-a-template">Create a Template</h2>
+<p>First, create a template for the related posts aside. I have created mine as follows <code>source/_includes/custom/asides/related_posts.html</code>. Below is my markup:
+
+```html</p>
+<section>
+    <h1>Related Posts</h1>
+    <ul class="related_posts unstyled">
+      {% for post in site.related_posts limit:5 %}
+        <li class="post">
+                    <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+      {% endfor" %}
+    </ul>
+</section>
+<p>```
+</p>
+
+<p>I am limiting a maximum of 5 related posts to be shown at once. I then included this aside in my post layout. Previewing the site populates this with the most recent posts. For a better list of related posts, we need to enable lsi in Jekyll.</p>
+
+<h2 id="jekyll-and-octopress-configuration">Jekyll and Octopress Configuration</h2>
+<p>Open the <code>_config_yml</code> file and add the following line anywhere in the file:</p>
+
+<p><code>ruby
+lsi: true
+</code></p>
+
+<p>This is all that is necessary. However, you may find that generating your blog now takes a very long time. This is because it is performing statistical analysis of your posts to determine which ones relate the best. To remedy this, we need to install gsl.</p>
+
+<h2 id="get-the-ruby-devkit">Get the Ruby DevKit</h2>
+<ol>
+  <li>Download and unzip the <a href="https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">Ruby DevKit</a> to <code>C:\Ruby193DevKit</code></li>
+  <li>Open the command and use the following commands:</li>
+</ol>
+
+<p><code>bash
+cd C:\Ruby193DevKit
+ruby dk.rb init
+</code></p>
+
+<ol>
+  <li>Open the newly created <code>config.yml</code> and ensure your Ruby is listed in the file.</li>
+  <li>Now issue the following commands:</li>
+</ol>
+
+<p><code>bash
+ruby dk.rb install
+</code></p>
+
+<h2 id="installing-gsl">Installing GSL</h2>
+<ol>
+  <li>Download <a href="http://ftpmirror.gnu.org/gsl/gsl-1.15.tar.gz">GSL 1.15</a></li>
+  <li>Using something like 7zip, unzip/untar the download to <code>C:\gsl-1.15</code></li>
+  <li>Open the following file: <code>C:\Ruby193DevKit\msys.bat</code>. This will open up a special command window.</li>
+  <li>Issue the following commands (may take several minutes to complete):</li>
+</ol>
+
+<p><code>bash
+cd /C/gsl-1.15
+./configure
+make
+make install
+</code></p>
+
+<h2 id="installing-rb-gsl">Installing rb-gsl</h2>
+<ol>
+  <li>Download the <a href="https://github.com/romanbsd/rb-gsl/archive/master.zip">rb-gsl source</a> and unzip it to <code>C:\rb-gsl</code></li>
+  <li>Next, using the same <code>msys.bat</code> command window, <code>cd</code> into the root of the rb-gsl directory and issue the following commands (as root):</li>
+</ol>
+
+<p><code>bash
+ruby setup.rb config
+ruby setup.rb setup
+ruby setup.rb install
+</code></p>
+
+<h2 id="conclusion-and-a-note-on-usage">Conclusion and a Note on Usage</h2>
+<p>You now have successfully installed the gsl library, rb-gsl gem and enabled the related posts functionality in Jekyll. It is worth noting that in order to generate your site with rb-gsl you need to use the <code>C:\Ruby193DevKit\msys.bat</code> command prompt. I have not had success doing so by simply using PowerShell.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Rake in .NET Projects]]></title>
+    <link href="http://softwarecraftsman.github.com/blog/2013/02/03/using-rake-in-net-projects/"/>
+    <updated>2013-02-03T16:36:00-05:00</updated>
+    <id>http://softwarecraftsman.github.com/blog/2013/02/03/using-rake-in-net-projects</id>
+    <content type="html"><![CDATA[<p>This article will demonstrate how I have utilized Ruby <a href="http://rake.rubyforge.org/">Rake</a>, the <a href="https://github.com/derickbailey/Albacore">Albacore</a> task library, and a few other Ruby gems for build automation in my .NET projects. Hopefully this will be a good source to help those wishing to do the same. Keep in mind that this is not a beginner&#8217;s guide and assumes you are already somewhat familiar with Rake. For those that prefer a more &#8220;hands-on&#8221; approach, the <strong><a href="https://gitlab.wearesoftwarecraftsmen.com/public">source code</a></strong> for this article can be found with my other <a href="https://gitlab.wearesoftwarecraftsmen.com/public">public projects</a>. <!--More--> </p>
+
+<h2 id="the-goals">The Goals</h2>
+<p>Before writing any Ruby, it&#8217;s important to determine exactly what it is you are trying to automate with Rake. This will serve as a guide in what and how you write your Rake tasks. I set out with the following goals in mind:</p>
+
+<ul>
+  <li>Compile the .NET project</li>
+  <li>Run all <a href="/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/">Mspec test specifications</a> for  project
+    <ul>
+      <li>Fail the build if any test specifications do not pass</li>
+    </ul>
+  </li>
+  <li>Generate AssemblyInfo.cs files with project information and version number
+    <ul>
+      <li>Include the commit sha with the version information in the AssemblyInfo.cs file</li>
+    </ul>
+  </li>
+  <li>Pull current version from git source control</li>
+  <li>Be able to increment a major and minor version for a build</li>
+  <li>Output all project <abbr title="Dynamic Link Library">DLL</abbr>s <strong>not</strong> associated with specification tests to build and release output folders</li>
+  <li>Be able to optionally merge all project <abbr title="Dynamic Link Library">DLL</abbr>s <strong>not</strong> associated with specification tests into one <abbr title="Dynamic Link Library">DLL</abbr> for distribution</li>
+  <li>Optionally be able to tag the current version in git from the build</li>
+</ul>
+
+<h2 id="include-our-gems">Include our Gems</h2>
+<p>We will want to include our gems and any Ruby file in the <code>build_tools</code> folder:</p>
+
+<p><code>ruby
+require "rake"
+require "albacore"
+require "fileutils"
+require "grit"
+require "configatron"
+Dir.glob("./build_tools/*rb") do |include_file|
+	require include_file
+end
+</code></p>
+
+<h2 id="preparing-the-build">Preparing the Build</h2>
+<p>Next, the build script needs to define some common properties and clean up the solution from any previous build. To facilitate cleaning the build, I have created a Rake namespace called <code>:setup</code>. In this namespace I have three tasks for now; one to remove any build-created directories, one to re-create any directories needed by the build, and, finally, one to call that completes all setup tasks (there will be a few more shortly).</p>
+
+<p>``` ruby
+base_dir = File.dirname(<strong>FILE</strong>)
+build_tools_dir = &#8220;#{base_dir}/build_tools&#8221;
+build_dir = &#8220;#{base_dir}/build&#8221;
+namespace :setup do</p>
+
+<pre><code>desc "Cleans up and removes build related artifacts."
+task :clean do 
+	FileUtils.rm_rf build_dir
+end
+
+desc "Initializes directories"
+task :init_directories =&gt; :clean do
+	FileUtils.mkdir build_dir
+end
+
+desc "Prepares files/folders/etc. for a new build."
+task :init =&gt; [:init_directories] do
+end end ```
+</code></pre>
+
+<h2 id="compiling-the-project">Compiling the Project</h2>
+<p>For the compilation task, I used <a href="https://github.com/derickbailey/Albacore">Albacore</a>&#8217;s <code>msbuild</code> task.</p>
+
+<p><code>ruby
+desc "Compiles the project."
+msbuild :compile =&gt; "setup:init" do |msb|
+	msb.command = "#{build_tools_dir}/msbuild/msbuild.exe"
+	msb.properties = { :configuration =&gt; :Release} 
+	msb.targets = [:Clean, :Build]
+	msb.nologo
+	msb.solution = "#{base_dir}/#{configatron.settings.target_solution_file}"
+end
+</code></p>
+
+<p>I have stored my target solution file in an external configuration file and used the <a href="https://github.com/markbates/configatron">configatron</a> gem to make it available. In order to do this, I have created a <code>build_configuration.settings</code> file:</p>
+
+<p><code>ruby
+configatron.configure_from_hash :settings =&gt; {
+	:target_solution_file =&gt; "DomainFramework.sln",
+	:title=&gt; "Domain Framework",
+	:description=&gt; "Framework to facilitate domain-oriented development in .NET.",
+	:company=&gt; "We are Software Craftsmen",
+	:product=&gt; "Domain Framework",
+	:copyright =&gt; "We are Software Craftsmen &amp; Andrew Smith 2013"
+}
+</code></p>
+
+<p>Notice that this is simply a Ruby file with a different file extension. I then load this file in the beginning with my other common variable declarations at the top; giving me:</p>
+
+<p><code>ruby
+load "#{base_dir}/build_configuration.settings"
+</code></p>
+
+<p>The <code>msbuild</code> task uses the default location of the MSBuild executable. However, there is a chance the build machine does not have MSBuild in the correct location or even installed. In order to make the build self-contained, I have explicitly configured the task&#8217;s command location to use the MSBuild.exe located in my build_tools directory. The MSBuild executable can be copied from the following locations:</p>
+
+<p>64-bit <code>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe</code></p>
+
+<p>32-bit <code>C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe</code></p>
+
+<h2 id="execute-mspec-specification-tests">Execute MSpec Specification Tests</h2>
+<p>Utilizing the specialized <code>mspec</code> <a href="https://github.com/derickbailey/Albacore">Albacore</a> task makes this easy:</p>
+
+<p><code>ruby
+desc "Executes all Mspec specifications."
+mspec :test =&gt; :compile do |mspec|
+	spec_dlls = Dir.glob("**/*.Specs.dll")
+	if spec_dlls.length &gt; 0 then
+		mspec.command = "#{build_tools_dir}/mspec/mspec-clr4.exe"
+		mspec.assemblies = spec_dlls
+	end
+end
+</code></p>
+
+<p>I have the convention that all my Mspec assemblies will end with <code>.Specs.dll</code>, so the first thing it does is scan the project for any <abbr title="Dynamic Link Library">DLL</abbr>s that match that pattern. If it finds any, then it executes the mspec command. Notice that I am specifying the Mspec executable as being located in my <code>build_tools/mspec</code> folder. You will need to build Mspec from its <a href="https://github.com/machine/machine.specifications">source</a> and add the built executable and assemblies to this folder.</p>
+
+<h2 id="versioning">Versioning</h2>
+<p>To manage the versioning, I created a Ruby class, <code>Version</code>:</p>
+
+<p>```ruby
+class Version
+	def initialize(repo)
+		@repo = repo
+		@already_incremented = false
+		@major_version = 0
+		@minor_version = 1
+		@commit_id = @repo.commits.first.id
+		latest_tag = @repo.tags.select {|tag| /^v/ =~ tag.name}.sort_by! {|tag| tag.commit.authored_date }.last
+		if !latest_tag.nil? then
+			puts latest_tag.name
+			version_parts = latest_tag.name.sub!(/^v/, &#8220;&#8221;).split(&#8220;.&#8221;)
+			@major_version = Integer(version_parts[0])
+			@minor_version = Integer(version_parts[1])
+		end
+	end</p>
+
+<pre><code>def increment_version(release_type)
+	if !@already_incremented then
+		@already_incremented = true
+		if release_type == ReleaseType.major then
+			increment_major
+		elsif release_type == ReleaseType.minor
+			increment_minor
+		end
+		return
+	end
+	throw :alreadyIncremented
+end
+
+def toString(with_commit_id = false)
+	if with_commit_id then
+		return "#{@major_version}.#{@minor_version}#{@commit_id}"
+	end
+	return "#{@major_version}.#{@minor_version}"
+end
+
+private
+def increment_major
+	@minor_version = 0
+	@major_version = @major_version + 1
+end
+
+def increment_minor
+	@minor_version = @minor_version + 1	
+end end ```
+</code></pre>
+
+<p>It accepts a <a href="https://github.com/mojombo/grit">grit</a> repository object and defaults to version 0.1 (major.minor). From the repo object, it then pulls a sorted collection of tags and grabs the most recent tag matching the name <code>v*.*</code>; so for example <code>v0.1</code>. It then takes this tag and splits it into the major and minor version.</p>
+
+<p>There is also a <code>toString</code> method for formatting the version in the format major.minor; with the optional setting to include the git commit sha at the end for major.minor.sha. Finally, we have an <code>increment_version</code> method that will increment the version based appropriately on the release type of major, minor, or ci. I did not want to use a magic string for the release type, so I also created another Ruby class to manage this; <code>ReleaseType</code>.</p>
+
+<p>```ruby
+class ReleaseType
+	def initialize(type)
+		@type = type
+	end</p>
+
+<pre><code>@@major = ReleaseType.new("major")
+@@minor = ReleaseType.new("minor")
+@@ci = ReleaseType.new("ci")
+
+def type
+	return @type
+end
+
+def self.from_string(release_type)
+	if release_type == "major" then
+		return @@major
+	elsif release_type == "minor"
+		return @@minor
+	elsif release_type == "ci"
+		return @@ci
+	end
+	return @@ci
+end
+
+def self.major
+	return @@major
+end
+
+def self.minor
+	return @@minor
+end
+
+def self.ci
+	return @@ci
+end end ```
+</code></pre>
+
+<p>This class defines a string property for the type&#8217;s name and then three class properties for each of the release types; major, minor, and ci. It also has a class method to return a release type based on a passed string. With this, we need to add a few more common properties to our rakefile as seen below:</p>
+
+<p>```ruby
+#&#8230;</p>
+
+<p>release_type_input = ENV[&#8220;release_type&#8221;] || &#8220;ci&#8221;
+release_type = ReleaseType.from_string(release_type_input)
+repo = Grit::Repo.new(base_dir)
+version = Version.new(repo)
+```</p>
+
+<p>Notice that I am using the <a href="https://github.com/mojombo/grit">grit</a> Ruby gem and creating one stating that our project root is the git repository.</p>
+
+<h2 id="updating-the-assemblyinfocs-with-our-version">Updating the AssemblyInfo.cs with our Version</h2>
+<p>We may have a mechanism in place for maintaining our version, but currently we are not actually using this version number anywhere. What we would like is for the build to automatically generate any required <code>AssemblyInfo.cs</code> with our information and version upon being built. I have added a few tasks in the <code>setup</code> namespace and modified our <code>init</code> task to utilize them:</p>
+
+<p>```ruby
+desc &#8220;Updates assembly info files.&#8221;
+task :update_assemblies do
+	Dir.glob(&#8220;*/Properties/&#8221;).each {|folder|
+		(assemblyinfo folder do |asm|
+			asm.version = version.toString
+			asm.company_name = configatron.settings.company_name
+			asm.product_name = configatron.settings.product
+			asm.title = configatron.settings.title
+			asm.description = configatron.settings.description
+			asm.copyright = configatron.settings.copyright
+			asm.output_file = &#8220;#{folder}/AssemblyInfo.cs&#8221;
+		end).invoke
+	}
+end</p>
+
+<p>desc &#8220;Increments version&#8221;
+task :increment_version do
+	version.increment_version(release_type)
+end</p>
+
+<h1 id="section">&#8230;</h1>
+
+<p>desc &#8220;Prepares files/folders/etc. for a new build.&#8221;
+task :init =&gt; [:init_directories, :increment_version, :update_assemblies] do
+end
+```</p>
+
+<p>Notice that an <code>AssemblyInfo.cs</code> file is created in every <code>Properties</code> folder two levels below the root; first level being the <code>csproj</code>/<code>vbproj</code> folder and the second being its contained <code>Properties</code> folder. I am using the <code>assemblyinfo</code> <a href="https://github.com/derickbailey/Albacore">Albacore</a> task and my data is being set from my configuration file.</p>
+
+<h2 id="build-output">Build Output</h2>
+<p>Currently the <code>msbuild</code> task is building all our projects in place and not outputing the assemblies anywhere useful. We remedy this by creating another task responsible for moving all the built Release assemblies. These assemblies will be copied to a temporary folder to be processed further by the build script. We do not, however, want to copy any test releated assemblies or dependent assemblies. To faciliate this, I have added a <code>project_folders</code> property at the top of the rakefile that contains only project folders not affiliated with testing.</p>
+
+<p>```ruby
+rejectFolders = [&#8220;build&#8221;, &#8220;release&#8221;, &#8220;build_tools&#8221;, &#8220;packages&#8221;]
+project_folders = Dir.glob(&#8220;#{base_dir}/<em>&#8221;).reject{|folder| 
+					rejectFolders.any? {|f|
+						/.</em>#{f}/ =~ folder
+					} ||
+					/.<em>Specs.</em>/ =~ folder ||
+					!File.directory?(folder)
+				}</p>
+
+<h1 id="section-1">&#8230;</h1>
+
+<p>desc &#8220;Copies project output to build folder.&#8221;
+task :build_output =&gt; &#8220;setup:init_directories&#8221; do
+	project_folders.each do |folder|
+	 	FileUtils.cp_r &#8220;#{folder}/bin/Release/.&#8221;, build_dir
+	end
+end
+```</p>
+
+<p>I also create a new namespace, <code>release</code>, and add tasks for preparing for the build&#8217;s output.</p>
+
+<p>```ruby
+namespace :release do
+	desc &#8220;Cleans for new release.&#8221;
+	task :clean do
+		FileUtils.rm_rf release_dir
+	end</p>
+
+<pre><code>task :init =&gt; :clean do
+	FileUtils.mkdir release_dir
+end end ```
+</code></pre>
+
+<p>Finally, I add a task to the <code>release</code> namespace to copy all assemblies from the temporary build folder into a release folder. This will be used when no merging of assemblies is required:</p>
+
+<p><code>ruby
+desc "Output the build&amp;#8217;s release output."
+task :output =&gt; [:test, :build_output, :init] do
+	FileUtils.cp Dir.glob("#{build_dir}/*.dll"), release_dir
+end
+</code></p>
+
+<h2 id="merging-assemblies">Merging Assemblies</h2>
+<p>In the case we want to merge all our assemblies into one to be output, we can use a tool called IL Merge. IL Merge is a tool which takes multiple .NET assemblies and combines them into one assembly <abbr title="Dynamic Link Library">DLL</abbr>. The ILMerge installer can be downloaded from <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17630">Microsoft</a>. Once installed, you will need locate the ILMerge.exe file and add it to your <code>build_tools</code> directory.</p>
+
+<p>I have added a task, <code>merge_and_output</code>, to the <code>release</code> namespace that utilizes the <code>ilmerge</code> <a href="https://github.com/derickbailey/Albacore">Albacore</a> task.</p>
+
+<p><code>ruby
+desc "Merge built assemblies."
+ilmerge :merge_and_output =&gt; [:test, :build_output,:init] do |cfg|
+	assemblies = Dir.glob("#{build_dir}/*.dll")
+	cfg.command = "#{build_tools_dir}/ilmerge/ILMerge.exe"
+	cfg.assemblies assemblies
+	cfg.output = "#{release_dir}/#{configatron.settings.title}.Release.dll"
+end
+</code></p>
+
+<p>Because only non-test releated assemblies have been copied to the build output folder, we can simply take every assembly in the folder and merge them together. I am outputing the merged assembly to the release directory.</p>
+
+<h2 id="tagging-our-version-in-git">Tagging our Version in Git</h2>
+<p>The last task I need to create is one to tag a release in git. I created a <code>ReleaseManager</code> class to handle this functionality. It contains a single class level method that creates a tag based on the version and release type.</p>
+
+<p><code>ruby
+class ReleaseManager
+	def self.tag_release(version, release_type)
+		exec "git tag -a \"v#{version.toString}\" -m \"Tagged for #{release_type.type}: v#{version.toString}\""
+	end
+end
+</code></p>
+
+<p>I then use this class in my final rake task located in the release namespace. If the release type is not a minor or major release, an error is thrown.</p>
+
+<p><code>ruby
+desc "Tags current version."
+task :tag_release =&gt; :test do
+	if release_type != ReleaseType.minor || release_type != ReleaseType.major then
+		throw :releaseTypeNotSupported
+	end
+	ReleaseManager.tag_release(version, release_type)
+end
+</code></p>
+
+<p>Finally, I add my default rake task to simply build the project and release its output without merging or tagging.</p>
+
+<p><code>ruby
+task :default =&gt; "release:output"
+</code></p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Using Ruby Rake we have successfully written a build automation script that can be used with most .NET projects; configurable by an external settings file. Of course, the full source can be pull via git from my <a href="https://gitlab.wearesoftwarecraftsmen.com/public">public repositories</a>. Feel free to leave your comments and questions. As always, remember that we all are software craftsmen!</p>
+]]></content>
+  </entry>
+  
+</feed>

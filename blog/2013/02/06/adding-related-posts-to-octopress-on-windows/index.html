@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>
+<html class="no-js iem7"><![endif]-->
+<!--[if lt IE 8]>
+<html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if lt IE 9]>
+<html class="no-js lt-ie10 lt-ie9" lang="en"> <![endif]-->
+<!--[if lt IE 10]><!-->
+<html class="no-js" lang="en" xmlns:fb="http://ogp.me/ns/fb#"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Adding Related Posts to Octopress on Windows - We are Software Craftsmen</title>
+    <meta name="author" content="Andrew Smith">
+
+    
+    <meta name="description" content="Although Jekyll already has the &#8220;related posts&#8221; feature baked in, utilizing rb-gsl can drastically speed up the site generation time by a &hellip;">
+    
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+
+    
+    <link rel="canonical" href="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/">
+    <link href="/favicon.png" rel="icon">
+    <!--[if lt IE 9]>
+    <script src="javascripts/html5shiv.js"></script>
+    <![endif]-->
+    <link href="/stylesheets/bootstrap.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/bootstrap-responsive.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/app.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+    <script src="/javascripts/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/javascripts/twitter.js" type="text/javascript"></script>
+    <script src="/javascripts/bitbucket.js" type="text/javascript"></script>
+    <script src="/javascripts/github.js" type="text/javascript"></script>
+    <!--<script src="/javascripts/app.js" type="text/javascript"></script>-->
+    <link href="/atom.xml" rel="alternate" title="We are Software Craftsmen" type="application/atom+xml">
+    <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body   >
+<div class="body">
+    <header role="banner"><div class="container">
+    <hgroup>
+        <h1><a href="/">We are Software Craftsmen</a></h1>
+        
+    </hgroup>
+</div>
+</header>
+    <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+        <div class=container>
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".search-collapse">
+                <span class="icon-search"></span>
+            </a>
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navigation-collapse">
+                <span class="icon-arrow-down"></span>
+            </a>
+
+            <nav role="navigation" class="nav-collapse collapse navigation-collapse">
+                <ul class="nav">
+                    <li>
+                        <a title="James Andrew Smith" href="/index.html"><i class="icon-home"></i></a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="/">Blog</a></li>
+<li><a href="/blog/archives">Archives</a></li>
+<li><a href="/profile">Profile</a></li>
+                </ul>
+                <ul class="nav subscription" data-subscription="rss">
+                    <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <form action="http://google.com/search" method="get" class="nav-collapse collapse search-collapse navbar-search pull-right">
+                <fieldset role="search">
+                    <input type="hidden" name="q" value="site:softwarecraftsman.github.com"/>
+                    <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
+                </fieldset>
+            </form>
+            
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div id="content" class="container">
+            <div class="row">
+                
+    <div class="span8">
+        
+    <article class="hentry" role="article">
+      
+  <header>
+    
+      <h1 class="page-header entry-title">Adding Related Posts to Octopress on Windows
+        </h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-06T11:34:00-05:00" pubdate data-updated="true">Feb 6<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Although Jekyll already has the &#8220;related posts&#8221; feature baked in, utilizing rb-gsl can drastically speed up the site generation time by a magnitude of 10 times. However, installing the rb-gsl gem requires you to compile gsl from its source; which can be a little tricky on Windows. Throw in only a handful of helpful articles and you may find yourself frustrated trying to accomplish this. In this article, I detail the steps to get related posts up, running, and generating on your Windows machine via rb-gsl and gsl. <!-- More--></p>
+
+<h2 id="create-a-template">Create a Template</h2>
+<p>First, create a template for the related posts aside. I have created mine as follows <code>source/_includes/custom/asides/related_posts.html</code>. Below is my markup:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+</pre></td><td class="code"><pre><code class="html"><span class="line"><span class="nt">&lt;section&gt;</span>
+</span><span class="line">    <span class="nt">&lt;h1&gt;</span>Related Posts<span class="nt">&lt;/h1&gt;</span>
+</span><span class="line">    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;related_posts unstyled&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">      {% for post in site.related_posts limit:5 %}
+</span><span class="line">        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+</span><span class="line">                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}{{ post.url }}&quot;</span><span class="nt">&gt;</span>{{ post.title }}<span class="nt">&lt;/a&gt;</span>
+</span><span class="line">                <span class="nt">&lt;/li&gt;</span>
+</span><span class="line">      {% endfor&quot; %}
+</span><span class="line">    <span class="nt">&lt;/ul&gt;</span>
+</span><span class="line"><span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>I am limiting a maximum of 5 related posts to be shown at once. I then included this aside in my post layout. Previewing the site populates this with the most recent posts. For a better list of related posts, we need to enable lsi in Jekyll.</p>
+
+<h2 id="jekyll-and-octopress-configuration">Jekyll and Octopress Configuration</h2>
+<p>Open the <code>_config_yml</code> file and add the following line anywhere in the file:</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="ss">lsi</span><span class="p">:</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>This is all that is necessary. However, you may find that generating your blog now takes a very long time. This is because it is performing statistical analysis of your posts to determine which ones relate the best. To remedy this, we need to install gsl.</p>
+
+<h2 id="get-the-ruby-devkit">Get the Ruby DevKit</h2>
+<ol>
+  <li>Download and unzip the <a href="https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">Ruby DevKit</a> to <code>C:\Ruby193DevKit</code></li>
+  <li>Open the command and use the following commands:</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd </span>C:<span class="se">\R</span>uby193DevKit
+</span><span class="line">ruby dk.rb init
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<ol>
+  <li>Open the newly created <code>config.yml</code> and ensure your Ruby is listed in the file.</li>
+  <li>Now issue the following commands:</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">ruby dk.rb install
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="installing-gsl">Installing GSL</h2>
+<ol>
+  <li>Download <a href="http://ftpmirror.gnu.org/gsl/gsl-1.15.tar.gz">GSL 1.15</a></li>
+  <li>Using something like 7zip, unzip/untar the download to <code>C:\gsl-1.15</code></li>
+  <li>Open the following file: <code>C:\Ruby193DevKit\msys.bat</code>. This will open up a special command window.</li>
+  <li>Issue the following commands (may take several minutes to complete):</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nb">cd</span> /C/gsl-1.15
+</span><span class="line">./configure
+</span><span class="line">make
+</span><span class="line">make install
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="installing-rb-gsl">Installing rb-gsl</h2>
+<ol>
+  <li>Download the <a href="https://github.com/romanbsd/rb-gsl/archive/master.zip">rb-gsl source</a> and unzip it to <code>C:\rb-gsl</code></li>
+  <li>Next, using the same <code>msys.bat</code> command window, <code>cd</code> into the root of the rb-gsl directory and issue the following commands (as root):</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line">ruby setup.rb config
+</span><span class="line">ruby setup.rb setup
+</span><span class="line">ruby setup.rb install
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h2 id="conclusion-and-a-note-on-usage">Conclusion and a Note on Usage</h2>
+<p>You now have successfully installed the gsl library, rb-gsl gem and enabled the related posts functionality in Jekyll. It is worth noting that in order to generate your site with rb-gsl you need to use the <code>C:\Ruby193DevKit\msys.bat</code> command prompt. I have not had success doing so by simply using PowerShell.</p>
+</div>
+
+
+      <footer>
+        <p class="meta">
+          
+  
+
+<span class="byline author vcard">Posted by <a rel="me" href="/profile" class="fn">Andrew Smith</a></span>
+
+          
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-06T11:34:00-05:00" pubdate data-updated="true">Feb 6<span>th</span>, 2013</time>
+          
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
+    
+    <script type="IN/Share" data-url="http://softwarecraftsman.github.com//blog/2013/02/06/adding-related-posts-to-octopress-on-windows/" data-counter="right" data-onsuccess="LinkedInShare"></script>
+    
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/" data-via="software_craft" data-counturl="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/" >Tweet</a>
+  
+
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <!--<div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>-->
+    <fb:like send="true" width="450" show_faces="true"></fb:like>
+  
+</div>
+
+        
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2013/02/03/using-rake-in-net-projects/" title="Previous Post: Using Rake in .NET Projects">&laquo; Using Rake in .NET Projects</a>
+          
+          
+        </p>
+      </footer>
+    </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+</div>
+
+<div class="span4">
+    <aside class="sidebar">
+      
+        <section>
+  <h1>About Me</h1>
+  <p><img class="img-polaroid pull-right" src="/images/profile_headshot_125x125.png" title="Profile headshot" >
+      I am a software engineer and am passionate about the craft in which I work. My interests are wide and varied; ranging from software architecture to UI/UX for the web. I am a strong subscriber to the <abbr title="A set of five principles of object-oriented design">SOLID</abbr> principles and am in constant pursuit of improvement. This site is dedicated to my thoughts, my work and the craft of making quality software.</p>
+</section>
+<section>
+    <h1>Related Posts</h1>
+    <ul class="related_posts unstyled">
+        
+        <li class="post">
+            <a href="/blog/2013/02/03/using-rake-in-net-projects/">Using Rake in .NET Projects</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/">Get Started with MSpec</a>
+        </li>
+        
+        <li class="post">
+            <a href="/blog/2013/01/28/on-software-craftsmanship/">On Software Craftsmanship</a>
+        </li>
+        
+    </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts" class="unstyled">
+    
+      <li class="post">
+        <a href="/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/">Adding Related Posts to Octopress on Windows</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/03/using-rake-in-net-projects/">Using Rake in .NET Projects</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/28/on-software-craftsmanship/">On Software Craftsmanship</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/">Get Started with MSpec</a>
+      </li>
+    
+  </ul>
+</section>
+<section class="tag-cloud">
+  <h1>Tag Cloud</h1>
+    <nav><a href='/blog/categories/automation' style='font-size: 130.0%'>automation(1)</a> <a href='/blog/categories/bdd' style='font-size: 130.0%'>BDD(1)</a> <a href='/blog/categories/craftsmanship' style='font-size: 130.0%'>craftsmanship(1)</a> <a href='/blog/categories/mspec' style='font-size: 130.0%'>mspec(1)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/rake' style='font-size: 130.0%'>rake(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> <a href='/blog/categories/tdd' style='font-size: 130.0%'>TDD(1)</a> <a href='/blog/categories/unit-testing' style='font-size: 130.0%'>unit testing(1)</a> </nav>
+</section>
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets" class="unstyled">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $(function(){
+      getTwitterFeed("software_craft", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/software_craft" class="twitter-follow-button" data-show-count="false">Follow @software_craft</a>
+  
+</section>
+
+
+<section id="github">
+  <h1>GitHub Repos</h1>
+  <ul id="github_repos" class="unstyled">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/softwarecraftsmen">@softwarecraftsmen</a> on GitHub
+  
+  <script type="text/javascript">
+    $(function(){
+        github.showRepos({
+            user: 'softwarecraftsmen',
+            count: 5,
+            skip_forks: true,
+            target: '#github_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section id="bitbucket">
+  <h1>Bitbucket Repos</h1>
+  <ul id="bitbucket_repos" class="unstyled">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <script type="text/javascript">
+    $(function(){
+        bitbucket.showRepos({
+            user: 'wearesoftwarecraftsmen',
+            count: 5,
+            target: '#bitbucket_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/bitbucket.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/117652511575279353270?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+      
+    </aside>
+</div>
+
+            </div>
+        </div>
+    </div>
+    <footer role="contentinfo"><div class="container"><div>
+    <p>
+        Copyright &copy; 2013 - Andrew Smith -
+        <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+    </p>
+</div>
+</div></footer>
+    
+
+<script type="text/javascript">
+      var disqus_shortname = 'wearesoftwarecraftsmen';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/';
+        var disqus_url = 'http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+		    FB.init({
+		      // appId      : 'YOUR_APP_ID', // App ID
+		      // channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+		      status     : true,
+		      cookie     : true,
+		      xfbml      : true
+		    });
+		    FB.Event.subscribe('edge.create', function(targetUrl) {
+		      _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+		    });
+		    FB.Event.subscribe('edge.remove', function(targetUrl) {
+		      _gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+		    });
+		    FB.Event.subscribe('message.send', function(targetUrl) {
+		      _gaq.push(['_trackSocial', 'facebook', 'send', targetUrl]);
+		    });
+		  };
+
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+      js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
+  </script>
+
+
+
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function LinkedInShare() {
+	_gaq.push(['_trackSocial', 'LinkedIn', 'Share']);
+	}
+</script>
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38417885-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    function extractParamFromUri(uri, paramName) {
+      if (!uri) {
+        return;
+      }
+      var regex = new RegExp('[\\?&#]' + paramName + '=([^&#]*)');
+      var params = regex.exec(uri);
+      if (params != null) {
+        return unescape(params[1]);
+      }
+      return;
+    }
+    function trackTwitter(intent_event) {
+      if (intent_event) {
+        var opt_pagePath;
+        if (intent_event.target && intent_event.target.nodeName == 'IFRAME') {
+              opt_target = extractParamFromUri(intent_event.target.src, 'url');
+        }
+        _gaq.push(['_trackSocial', 'twitter', 'tweet', opt_pagePath]);
+      }
+    }
+  </script>
+
+
+
+</div>
+</body>
+</html>

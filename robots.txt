@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://softwarecraftsman.github.com/sitemap.xml 
