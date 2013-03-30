@@ -58,7 +58,7 @@ page_asides: [asides/twitter.html, asides/github.html, asides/bitbucket.html, as
 # ----------------------- #
 
 # Github repositories
-github_user: softwarecraftsmen
+github_user: softwarecraftsman
 github_repo_count: 5
 github_show_profile_link: true
 github_skip_forks: true
