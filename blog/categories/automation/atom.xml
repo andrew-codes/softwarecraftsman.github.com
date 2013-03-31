@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: automation | We are Software Craftsmen]]></title>
-  <link href="http://softwarecraftsman.github.com/blog/categories/automation/atom.xml" rel="self"/>
-  <link href="http://softwarecraftsman.github.com/"/>
-  <updated>2013-03-25T08:44:17-04:00</updated>
-  <id>http://softwarecraftsman.github.com/</id>
+  <link href="http://wearesoftwarecraftsmen.com/blog/categories/automation/atom.xml" rel="self"/>
+  <link href="http://wearesoftwarecraftsmen.com/"/>
+  <updated>2013-03-31T06:10:56-04:00</updated>
+  <id>http://wearesoftwarecraftsmen.com/</id>
   <author>
     <name><![CDATA[Andrew Smith]]></name>
     <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Rake in .NET Projects]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/02/03/using-rake-in-net-projects/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/02/03/using-rake-in-net-projects/"/>
     <updated>2013-02-03T16:36:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/02/03/using-rake-in-net-projects</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/02/03/using-rake-in-net-projects</id>
     <content type="html"><![CDATA[<p>This article will demonstrate how I have utilized Ruby <a href="http://rake.rubyforge.org/">Rake</a>, the <a href="https://github.com/derickbailey/Albacore">Albacore</a> task library, and a few other Ruby gems for build automation in my .NET projects. Hopefully this will be a good source to help those wishing to do the same. Keep in mind that this is not a beginner&#8217;s guide and assumes you are already somewhat familiar with Rake. For those that prefer a more &#8220;hands-on&#8221; approach, the <strong><a href="https://gitlab.wearesoftwarecraftsmen.com/public">source code</a></strong> for this article can be found with my other <a href="https://gitlab.wearesoftwarecraftsmen.com/public">public projects</a>. <!--More--> </p>
 
 <h2 id="the-goals">The Goals</h2>

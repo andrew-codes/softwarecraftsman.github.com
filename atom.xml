@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[We are Software Craftsmen]]></title>
-  <link href="http://softwarecraftsman.github.com/atom.xml" rel="self"/>
-  <link href="http://softwarecraftsman.github.com/"/>
-  <updated>2013-03-25T08:44:17-04:00</updated>
-  <id>http://softwarecraftsman.github.com/</id>
+  <link href="http://wearesoftwarecraftsmen.com/atom.xml" rel="self"/>
+  <link href="http://wearesoftwarecraftsmen.com/"/>
+  <updated>2013-03-31T06:10:56-04:00</updated>
+  <id>http://wearesoftwarecraftsmen.com/</id>
   <author>
     <name><![CDATA[Andrew Smith]]></name>
     <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Adding Related Posts to Octopress on Windows]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/"/>
     <updated>2013-02-06T11:34:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows</id>
     <content type="html"><![CDATA[<p>Although Jekyll already has the &#8220;related posts&#8221; feature baked in, utilizing rb-gsl can drastically speed up the site generation time by a magnitude of 10 times. However, installing the rb-gsl gem requires you to compile gsl from its source; which can be a little tricky on Windows. Throw in only a handful of helpful articles and you may find yourself frustrated trying to accomplish this. In this article, I detail the steps to get related posts up, running, and generating on your Windows machine via rb-gsl and gsl. <!-- More--></p>
 
 <h2 id="create-a-template">Create a Template</h2>
@@ -116,9 +116,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Rake in .NET Projects]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/02/03/using-rake-in-net-projects/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/02/03/using-rake-in-net-projects/"/>
     <updated>2013-02-03T16:36:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/02/03/using-rake-in-net-projects</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/02/03/using-rake-in-net-projects</id>
     <content type="html"><![CDATA[<p>This article will demonstrate how I have utilized Ruby <a href="http://rake.rubyforge.org/">Rake</a>, the <a href="https://github.com/derickbailey/Albacore">Albacore</a> task library, and a few other Ruby gems for build automation in my .NET projects. Hopefully this will be a good source to help those wishing to do the same. Keep in mind that this is not a beginner&#8217;s guide and assumes you are already somewhat familiar with Rake. For those that prefer a more &#8220;hands-on&#8221; approach, the <strong><a href="https://gitlab.wearesoftwarecraftsmen.com/public">source code</a></strong> for this article can be found with my other <a href="https://gitlab.wearesoftwarecraftsmen.com/public">public projects</a>. <!--More--> </p>
 
 <h2 id="the-goals">The Goals</h2>
@@ -126,7 +126,7 @@
 
 <ul>
   <li>Compile the .NET project</li>
-  <li>Run all <a href="http://softwarecraftsman.github.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/">Mspec test specifications</a> for  project
+  <li>Run all <a href="http://wearesoftwarecraftsmen.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/">Mspec test specifications</a> for  project
     <ul>
       <li>Fail the build if any test specifications do not pass</li>
     </ul>
@@ -677,9 +677,9 @@
   
   <entry>
     <title type="html"><![CDATA[On Software Craftsmanship]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/01/28/on-software-craftsmanship/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/01/28/on-software-craftsmanship/"/>
     <updated>2013-01-28T11:30:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/01/28/on-software-craftsmanship</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/01/28/on-software-craftsmanship</id>
     <content type="html"><![CDATA[<p>I consider myself a software craftsman. So in reading the article <a href="http://www.javaworld.com/community/?q=node/8649" title="On the Dark Side of Craftsmanship">On the Dark Side of &#8220;Craftsmanship&#8221;</a>, one may assume that I was upset at this article&#8217;s summary of what software craftsmanship truly entails. I was not. In fact, I not only agree with the tone and some of the points in the article, but have experienced some of these exact same things. I tend to feel that the meaning of software craftsmanship is not only misunderstood by &#8220;software laborers,&#8221; but by software craftsmen as well. This is my attempt to better define the driving motivation behind craftsmanship. <!--More--></p>
 
 <h2 id="we-are-all-software-craftsmen">We are All Software Craftsmen</h2>
@@ -705,9 +705,9 @@ together.</strong></p>
   
   <entry>
     <title type="html"><![CDATA[Get Started with MSpec]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/"/>
     <updated>2013-01-19T08:32:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications</id>
     <content type="html"><![CDATA[<p>This tutorial will help you get started using Machine.Specifications, otherwise known as MSpec,
 for writing your <abbr title="Behavioral driven development">BDD</abbr> style unit tests, called specifications. In this tutorial we will go over the basic syntax of using MSpec, author some simple specifications, as well as setup ReSharper to run and output the results. <!--More--></p>
 
@@ -815,17 +815,17 @@ Establish context-Because of-It should). You will be declaring the <em>Subject</
 
 <h2 id="running-your-specifications">Running Your Specifications</h2>
 <p class="clearfix">
-<img class="img-polaroid pull-right" src="http://softwarecraftsman.github.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/run-unit-tests-resharper-right-click-menu_resized.png" /> Having setup ReSharper with MSpec, the easiest way is to right-click on the specifications project and click &#8220;Run Unit Tests&#8221; as seen in the screenshot here:
+<img class="img-polaroid pull-right" src="http://wearesoftwarecraftsmen.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/run-unit-tests-resharper-right-click-menu_resized.png" /> Having setup ReSharper with MSpec, the easiest way is to right-click on the specifications project and click &#8220;Run Unit Tests&#8221; as seen in the screenshot here:
 </p>
 
 <p class="clearfix">
 Running your unit tests will open the Unit Tests Session window. From here you can run all or any subset of your unit tests. Note that you may add tests from other files to the current testing session. This allows you to configure your session to only run the tests you want; you are not boxed into an all or nothing testing scenario.
-<img class="im-polaroid pull-left" src="http://softwarecraftsman.github.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/unit-test-sessions.png" />
+<img class="im-polaroid pull-left" src="http://wearesoftwarecraftsmen.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/unit-test-sessions.png" />
 </p>
 
 <p class="clearfix">
 ReSharper has much more to offer for unit testing than just this. Checking out the ReSharper menu item reveals quite a bit of additional functionality.
-<img class="im-polaroid pull-right" src="http://softwarecraftsman.github.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/resharper-unit-tests-menu_resized.png" />
+<img class="im-polaroid pull-right" src="http://wearesoftwarecraftsmen.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/resharper-unit-tests-menu_resized.png" />
 </p>
 
 <h2 id="wrapping-it-up">Wrapping it Up</h2>

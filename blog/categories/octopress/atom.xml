@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: octopress | We are Software Craftsmen]]></title>
-  <link href="http://softwarecraftsman.github.com/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://softwarecraftsman.github.com/"/>
-  <updated>2013-03-25T08:44:17-04:00</updated>
-  <id>http://softwarecraftsman.github.com/</id>
+  <link href="http://wearesoftwarecraftsmen.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://wearesoftwarecraftsmen.com/"/>
+  <updated>2013-03-31T06:10:56-04:00</updated>
+  <id>http://wearesoftwarecraftsmen.com/</id>
   <author>
     <name><![CDATA[Andrew Smith]]></name>
     <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Adding Related Posts to Octopress on Windows]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows/"/>
     <updated>2013-02-06T11:34:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/02/06/adding-related-posts-to-octopress-on-windows</id>
     <content type="html"><![CDATA[<p>Although Jekyll already has the &#8220;related posts&#8221; feature baked in, utilizing rb-gsl can drastically speed up the site generation time by a magnitude of 10 times. However, installing the rb-gsl gem requires you to compile gsl from its source; which can be a little tricky on Windows. Throw in only a handful of helpful articles and you may find yourself frustrated trying to accomplish this. In this article, I detail the steps to get related posts up, running, and generating on your Windows machine via rb-gsl and gsl. <!-- More--></p>
 
 <h2 id="create-a-template">Create a Template</h2>

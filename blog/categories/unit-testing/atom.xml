@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: unit testing | We are Software Craftsmen]]></title>
-  <link href="http://softwarecraftsman.github.com/blog/categories/unit-testing/atom.xml" rel="self"/>
-  <link href="http://softwarecraftsman.github.com/"/>
-  <updated>2013-03-25T08:44:17-04:00</updated>
-  <id>http://softwarecraftsman.github.com/</id>
+  <link href="http://wearesoftwarecraftsmen.com/blog/categories/unit-testing/atom.xml" rel="self"/>
+  <link href="http://wearesoftwarecraftsmen.com/"/>
+  <updated>2013-03-31T06:10:56-04:00</updated>
+  <id>http://wearesoftwarecraftsmen.com/</id>
   <author>
     <name><![CDATA[Andrew Smith]]></name>
     <email><![CDATA[andrew@wearesoftwarecraftsmen.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Get Started with MSpec]]></title>
-    <link href="http://softwarecraftsman.github.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/"/>
+    <link href="http://wearesoftwarecraftsmen.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications/"/>
     <updated>2013-01-19T08:32:00-05:00</updated>
-    <id>http://softwarecraftsman.github.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications</id>
+    <id>http://wearesoftwarecraftsmen.com/blog/2013/01/19/getting-started-with-mspec-machine-dot-specifications</id>
     <content type="html"><![CDATA[<p>This tutorial will help you get started using Machine.Specifications, otherwise known as MSpec,
 for writing your <abbr title="Behavioral driven development">BDD</abbr> style unit tests, called specifications. In this tutorial we will go over the basic syntax of using MSpec, author some simple specifications, as well as setup ReSharper to run and output the results. <!--More--></p>
 
@@ -97,17 +97,17 @@ public class StringUtilities
 
 <h2 id="running-your-specifications">Running Your Specifications</h2>
 <p class="clearfix">
-<img class="img-polaroid pull-right" src="http://softwarecraftsman.github.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/run-unit-tests-resharper-right-click-menu_resized.png" /> Having setup ReSharper with MSpec, the easiest way is to right-click on the specifications project and click "Run Unit Tests" as seen in the screenshot here:
+<img class="img-polaroid pull-right" src="http://wearesoftwarecraftsmen.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/run-unit-tests-resharper-right-click-menu_resized.png" /> Having setup ReSharper with MSpec, the easiest way is to right-click on the specifications project and click "Run Unit Tests" as seen in the screenshot here:
 </p>
 
 <p class="clearfix">
 Running your unit tests will open the Unit Tests Session window. From here you can run all or any subset of your unit tests. Note that you may add tests from other files to the current testing session. This allows you to configure your session to only run the tests you want; you are not boxed into an all or nothing testing scenario.
-<img class="im-polaroid pull-left" src="http://softwarecraftsman.github.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/unit-test-sessions.png" />
+<img class="im-polaroid pull-left" src="http://wearesoftwarecraftsmen.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/unit-test-sessions.png" />
 </p>
 
 <p class="clearfix">
 ReSharper has much more to offer for unit testing than just this. Checking out the ReSharper menu item reveals quite a bit of additional functionality.
-<img class="im-polaroid pull-right" src="http://softwarecraftsman.github.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/resharper-unit-tests-menu_resized.png" />
+<img class="im-polaroid pull-right" src="http://wearesoftwarecraftsmen.com/images/posts/2013-01-19-getting-started-with-mspec-machine-dot-specifications/resharper-unit-tests-menu_resized.png" />
 </p>
 
 <h2 id="wrapping-it-up">Wrapping it Up</h2>

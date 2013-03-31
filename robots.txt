@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://softwarecraftsman.github.com/sitemap.xml 
+Sitemap: http://wearesoftwarecraftsmen.com/sitemap.xml 
