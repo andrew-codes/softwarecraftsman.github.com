@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareCraftsmen.Blog.UI.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareCraftsmen.Blog.UI.Web.Infrastructure", "SoftwareCraftsmen.Blog.UI.Web.Infrastructure\SoftwareCraftsmen.Blog.UI.Web.Infrastructure.csproj", "{17DDECC9-3AD4-4A7D-AD76-40038F996720}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareCraftsmen.Blog.Tests.Infrastructure", "SoftwareCraftsmen.Blog.Tests.Infrastructure\SoftwareCraftsmen.Blog.Tests.Infrastructure.csproj", "{5832C8B4-C74A-4885-B9A3-E25B4FF8DD6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareCraftsmen.Blog.Tests.UI.Web.Infrastructure", "SoftwareCraftsmen.Blog.Tests.UI.Web.Infrastructure\SoftwareCraftsmen.Blog.Tests.UI.Web.Infrastructure.csproj", "{7EF54C1C-8D25-44BA-BFD7-AC8CE6E836C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,14 @@ Global
 		{17DDECC9-3AD4-4A7D-AD76-40038F996720}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17DDECC9-3AD4-4A7D-AD76-40038F996720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17DDECC9-3AD4-4A7D-AD76-40038F996720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5832C8B4-C74A-4885-B9A3-E25B4FF8DD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5832C8B4-C74A-4885-B9A3-E25B4FF8DD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5832C8B4-C74A-4885-B9A3-E25B4FF8DD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5832C8B4-C74A-4885-B9A3-E25B4FF8DD6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EF54C1C-8D25-44BA-BFD7-AC8CE6E836C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF54C1C-8D25-44BA-BFD7-AC8CE6E836C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF54C1C-8D25-44BA-BFD7-AC8CE6E836C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF54C1C-8D25-44BA-BFD7-AC8CE6E836C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +69,8 @@ Global
 		{950976BA-A30A-4A84-BB70-714FA6838D52} = {2E0E8D94-7314-48A9-B43A-DF909DB560A8}
 		{7CEDD5B4-A753-4CA9-98E4-112D075D1782} = {325496EA-CE9D-42FA-98A2-297A15BFB022}
 		{6FE6EC19-FC18-4C10-84AD-15D8C9F07C70} = {7CEDD5B4-A753-4CA9-98E4-112D075D1782}
+		{5832C8B4-C74A-4885-B9A3-E25B4FF8DD6B} = {7CEDD5B4-A753-4CA9-98E4-112D075D1782}
+		{7EF54C1C-8D25-44BA-BFD7-AC8CE6E836C3} = {7CEDD5B4-A753-4CA9-98E4-112D075D1782}
 		{2F8BDB50-4DB4-438A-9F47-4764526AB683} = {102B78D6-8CE2-4C11-B79C-29A9F8456311}
 		{39375DC0-4036-432A-BDDE-12C64E8AC95E} = {2F8BDB50-4DB4-438A-9F47-4764526AB683}
 		{17DDECC9-3AD4-4A7D-AD76-40038F996720} = {2F8BDB50-4DB4-438A-9F47-4764526AB683}
